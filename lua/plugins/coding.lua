@@ -88,10 +88,14 @@ return {
 	},
 
 	{
-		"nvim-cmp",
-		dependencies = { "hrsh7th/cmp-emoji" },
-		opts = function(_, opts)
-			table.insert(opts.sources, { name = "emoji" })
-		end,
+		"echasnovski/mini.pairs",
+		enabled = false,
+	},
+	{
+
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+		config = true,
 	},
 }
