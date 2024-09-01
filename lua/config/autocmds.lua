@@ -32,3 +32,4 @@ vim.api.nvim_create_autocmd("User", {
 		require("notify")("Session Loaded", "info", { title = "NeoTree" })
 	end,
 })
+-- Create an autocommand group for clarity and organization
