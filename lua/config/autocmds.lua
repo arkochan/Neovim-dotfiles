@@ -19,8 +19,6 @@ vim.api.nvim_create_autocmd("User", {
 	callback = function()
 		-- Store the current window
 		local prev_win = vim.api.nvim_get_current_win()
-		--Get cwd
-		local cwd = vim.fn.getcwd()
 		-- Open NeoTree
 		vim.api.nvim_command("Neotree")
 		-- Trigger a BufEnter event for NeoTree
@@ -29,7 +27,6 @@ vim.api.nvim_create_autocmd("User", {
 		-- Restore the previous window
 		vim.api.nvim_set_current_win(prev_win)
 		-- Create a notification
-		require("notify")("Session Loaded", "info", { title = "NeoTree" })
+		require("notify")("Session Loaded", "info", { title = "Persistence" })
 	end,
 })
--- Create an autocommand group for clarity and organization
