@@ -19,4 +19,9 @@ return {
     { "<leader>qd", function() require("persistence").stop() end, desc = "Stop Persistence: don't save session on exit" },
     },
 	},
+	{
+		"pocco81/auto-save.nvim",
+		config = true,
+		event = "InsertEnter",
+	},
 }

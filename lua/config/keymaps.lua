@@ -15,12 +15,8 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
--- Increment/decrement
-keymap.set("n", "+", "<C-a>")
-keymap.set("n", "-", "<C-x>")
-
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+-- keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -33,25 +29,26 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
-keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- keymap.set("n", "te", ":tabedit")
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 -- Split window
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
+-- keymap.set("n", "ss", ":split<Return>", opts)
+-- keymap.set("n", "sv", ":vsplit<Return>", opts)
 -- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Jump to tab left" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Jump to tab up" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Jump to tab down" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Jump to tab right" })
 -- Resize window
-keymap.set("n", "<C-Left>", "<C-w><")
-keymap.set("n", "<C-right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+
+-- keymap.set("n", "<C-Left>", "<C-w><", { desc = "resize window left", noremap = true })
+-- keymap.set("n", "<C-Right>", "<C-w>>", { desc = "resize window right", noremap = true })
+-- keymap.set("n", "<C-w><up>", "<C-w>-", { desc = "resize window up" })
+-- keymap.set("n", "<C-w><down>", "<C-w>+", { desc = "resize window down" })
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+keymap.set("n", "t", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
@@ -69,7 +66,6 @@ keymap.set("n", "<leader>cool", function()
 	require("notify")("you are nice")
 end, { desc = "you are niciefied" })
 --keymap to show all keymaps throu telescope
---
 keymap.set("n", "<leader>k", function()
 	require("telescope.builtin").keymaps()
 end, { desc = "Show all keymaps" })
